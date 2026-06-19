@@ -189,6 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('couple').scrollIntoView({ behavior: 'smooth' });
     });
 
+    const scrollIndicator = document.getElementById('scrollDownIndicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            document.getElementById('couple').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
 
     /* ==========================================
        4. Visual Scroll-Triggered Reveal System

@@ -1800,3 +1800,39 @@ body {
         padding-top: 0.5rem !important;
     }
 }
+
+/* Scroll Down Indicator Styling */
+.scroll-down-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    animation: scrollBounce 2s infinite ease-in-out;
+}
+
+.scroll-text {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--color-royal-blue);
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.scroll-arrow {
+    font-size: 1.2rem;
+    color: var(--color-temple-gold);
+    text-shadow: var(--gold-glow);
+}
+
+@keyframes scrollBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
