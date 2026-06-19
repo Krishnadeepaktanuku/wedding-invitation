@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Royal Union | Krishna Deepak & Sindhu Sri</title>
+    <meta name="description" content="Immersive cinematic wedding invitation for the royal union of Krishna Deepak & Sindhu Sri on June 28, 2026. Explore our journey, rituals, and events.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="The Royal Union | Krishna Deepak & Sindhu Sri">
+    <meta property="og:description" content="Explore our royal wedding invitation microsite. June 28, 2026. Join us in our celebrations.">
+    <meta property="og:image" content="assets/couple_portrait.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Animated Royal Temple Doors Overlay -->
+    <div id="templeDoorsWrapper" class="temple-doors-wrapper">
+        <div class="door door-left">
+            <div class="door-inner-panel">
+                <div class="door-mandala left-mandala"></div>
+                <div class="mango-leaves-hanging"></div>
+            </div>
+        </div>
+        <div class="door door-right">
+            <div class="door-inner-panel">
+                <div class="door-mandala right-mandala"></div>
+                <div class="mango-leaves-hanging"></div>
+            </div>
+        </div>
+        <!-- Door Knocker / Lock Ring -->
+        <div id="doorKnocker" class="door-knocker-wrap">
+            <div class="knocker-ring">
+                <span class="knocker-text">TAP TO ENTER</span>
+                <div class="knocker-center-dot"></div>
+            </div>
+            <div class="knocker-couple-names">Krishna Deepak & Sindhu Sri</div>
+            <div class="knocker-intro-text">Request the honor of your presence</div>
+        </div>
+    </div>
+
+    <!-- Floating Particles Canvas (Fills the screen behind content) -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- 2. Floating Countdown Pill (Appears on scroll) -->
+    <div id="floatingCountdownPill" class="floating-countdown-pill" title="Click to view Countdown">
+        <span class="pill-icon">⏳</span>
+        <span id="pillCountdownText" class="pill-text">0 Days Left</span>
+    </div>
+
+    <!-- 3. Music Player Toggle -->
+    <div class="music-player-container">
+        <button id="musicToggleBtn" class="music-toggle-btn" aria-label="Toggle Music">
+            <span class="music-icon-wrap">
+                <i class="fa-solid fa-music"></i>
+            </span>
+            <span class="music-text">Play Music</span>
+        </button>
+        <!-- Royalty free soft instrumental track -->
+        <audio id="bgMusic" loop src="assets/Radhe shyam-wedding invitations- best -traditional-classic-cinematic-royal wedding invitations-020-.mp3" preload="auto"></audio>
+    </div>
+
+    <!-- Main Content Container (Hidden until doors open) -->
+    <div class="scroll-container hidden-content" id="mainScrollContainer">
+        
+        <!-- 4. Hero Section & Main Countdown -->
+        <section class="section hero-section" id="hero">
+            <div class="hero-bg-overlay"></div>
+            <div class="hero-content">
+                <!-- Monogram -->
+                <div class="monogram-wrapper scroll-reveal">
+                    <img src="assets/ks_logo.png" alt="K&S Monogram Logo" class="monogram-logo-img">
+                </div>
+                
+                <p class="hero-together-text scroll-reveal">Two Hearts. One Journey. A Lifetime of Togetherness.</p>
+                
+                <div class="hero-couple-names scroll-reveal">
+                    <h1 class="font-royal-blue">Krishna Deepak</h1>
+                    <div class="heart-icon"><i class="fa-solid fa-heart royal-blue-glow"></i></div>
+                    <h1 class="font-royal-blue">Sindhu Sri</h1>
+                </div>
+
+                <!-- Main Hero Countdown Card -->
+                <div class="countdown-container glass-panel scroll-reveal">
+                    <h3 class="countdown-heading font-royal-blue">Sumuhurtam Countdown</h3>
+                    <div class="countdown-grid">
+                        <div class="countdown-item">
+                            <span class="countdown-val font-royal-blue" id="days">00</span>
+                            <span class="countdown-lbl">Days</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-val font-royal-blue" id="hours">00</span>
+                            <span class="countdown-lbl">Hours</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-val font-royal-blue" id="minutes">00</span>
+                            <span class="countdown-lbl">Minutes</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-val font-royal-blue" id="seconds">00</span>
+                            <span class="countdown-lbl">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="hero-quote scroll-reveal">"Every ritual tells a story. Every blessing becomes a memory."</p>
+                
+                <button id="openInvitationBtn" class="btn btn-royal-blue btn-large scroll-reveal">Open Invitation</button>
+            </div>
+        </section>
+
+        <!-- Couple Portrait Section -->
+        <section class="section portrait-section" id="couple">
+            <div class="container">
+                <div class="portrait-card glass-panel scroll-reveal">
+                    <div class="portrait-frame">
+                        <img src="assets/couple_portrait.png" alt="Krishna Deepak & Sindhu Sri" class="couple-photo">
+                    </div>
+                    <div class="portrait-details">
+                        <span class="section-subtitle">Save the Date</span>
+                        <h2 class="serif-title font-royal-blue">A Lifetime of Love</h2>
+                        <p class="portrait-desc">
+                            We request the pleasure of your company as we take the sacred steps to tie our lives together in holy matrimony. Join us in celebrating a union blessed by tradition, filled with love, and cherished by family.
+                        </p>
+                        <div class="wedding-blessing">
+                            "May our love grow like a seed, rooted in trust and rising toward the sky."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Celebration Timeline (Interactive Scratch Cards) -->
+        <section class="section timeline-section" id="journey">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">Wedding Journey</span>
+                    <h2 class="serif-title font-royal-blue">THE CELEBRATIONS</h2>
+                    <div class="gold-accent-divider"></div>
+                    <p class="section-instruction-text">Tap or click the gold cards below to reveal the event details.</p>
+                </div>
+
+                <div class="scratch-cards-grid scroll-reveal">
+                    
+                    <!-- Event 1: Turmeric Tales -->
+                    <div class="scratch-card-wrapper event-haldi">
+                        <div class="scratch-card-inner">
+                            <!-- Revealed Event Details -->
+                            <div class="event-details-revealed bg-haldi">
+                                <span class="event-icon"><i class="fa-solid fa-mortar-pestle"></i></span>
+                                <h3 class="event-title">Turmeric Tales</h3>
+                                <span class="event-subtitle">Haldi Ceremony</span>
+                                <p class="event-text">
+                                    More than a ceremony, Haldi is a blessing wrapped in tradition. Turmeric symbolizes purity, prosperity, protection, and joy. As family and friends apply turmeric, they shower the couple with blessings for a vibrant and happy married life.
+                                </p>
+                                <div class="event-key-points">
+                                    <span><strong>Essence:</strong> Purification, Prosperity, New Beginnings</span>
+                                    <span><strong>Date:</strong> 27 June 2026</span>
+                                    <span><strong>Time:</strong> from 8:00 AM</span>
+                                    <span><strong>Venue:</strong> At our residence</span>
+                                </div>
+                            </div>
+                            <!-- Scratch Foil Canvas -->
+                            <canvas id="scratchCanvas1" class="scratch-canvas" width="400" height="480"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Event 2: Colour of Love -->
+                    <div class="scratch-card-wrapper event-mehendi">
+                        <div class="scratch-card-inner">
+                            <!-- Revealed Event Details -->
+                            <div class="event-details-revealed bg-mehendi">
+                                <span class="event-icon"><i class="fa-solid fa-hands-holding-child"></i></span>
+                                <h3 class="event-title">Colour of Love</h3>
+                                <span class="event-subtitle">Mehendi Ceremony</span>
+                                <p class="event-text">
+                                    Mehendi celebrates beauty, love, and togetherness. Its intricate patterns symbolize the bond between two souls and the joy of joining two families. Every design tells a story.
+                                </p>
+                                <div class="event-key-points">
+                                    <span><strong>Essence:</strong> Love, Beauty, Celebration</span>
+                                    <span><strong>Date:</strong> 27 June 2026</span>
+                                    <span><strong>Venue:</strong> Galaxy Hall, Hotel Shubham Prestige</span>
+                                </div>
+                            </div>
+                            <!-- Scratch Foil Canvas -->
+                            <canvas id="scratchCanvas2" class="scratch-canvas" width="400" height="480"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Event 3: The Prelude Night -->
+                    <div class="scratch-card-wrapper event-sangeet">
+                        <div class="scratch-card-inner">
+                            <!-- Revealed Event Details -->
+                            <div class="event-details-revealed bg-sangeet">
+                                <span class="event-icon"><i class="fa-solid fa-music"></i></span>
+                                <h3 class="event-title">The Prelude Night</h3>
+                                <span class="event-subtitle">Sangeet Ceremony</span>
+                                <p class="event-text">
+                                    A night where music becomes memory. Families unite through laughter, dance, and celebration. The joyful beginning to a lifelong melody.
+                                </p>
+                                <div class="event-key-points">
+                                    <span><strong>Essence:</strong> Joy, Unity, Celebration</span>
+                                    <span><strong>Date:</strong> 27 June 2026</span>
+                                    <span><strong>Venue:</strong> Galaxy Hall, Hotel Shubham Prestige</span>
+                                </div>
+                            </div>
+                            <!-- Scratch Foil Canvas -->
+                            <canvas id="scratchCanvas3" class="scratch-canvas" width="400" height="480"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Event 4: Sumuhurtam -->
+                    <div class="scratch-card-wrapper event-wedding">
+                        <div class="scratch-card-inner">
+                            <!-- Revealed Event Details -->
+                            <div class="event-details-revealed bg-wedding">
+                                <span class="event-icon"><i class="fa-solid fa-hands-bound"></i></span>
+                                <h3 class="event-title">Sumuhurtam</h3>
+                                <span class="event-subtitle">The Wedding Ceremony</span>
+                                <p class="event-text">
+                                    Two souls. Two families. One sacred journey. Under divine blessings, Krishna Deepak and Sindhu Sri begin forever.
+                                </p>
+                                <div class="event-key-points">
+                                    <span><strong>Essence:</strong> Commitment for Life</span>
+                                    <span><strong>Date:</strong> 28 June 2026</span>
+                                    <span><strong>Time:</strong> 8:49 AM Sharp</span>
+                                    <span><strong>Venue:</strong> Kalyanamastu, Hotel Shubham Prestige</span>
+                                </div>
+                            </div>
+                            <!-- Scratch Foil Canvas -->
+                            <canvas id="scratchCanvas4" class="scratch-canvas" width="400" height="480"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Sacred Rituals Experience -->
+        <section class="section rituals-section" id="rituals">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">Sacred Traditions</span>
+                    <h2 class="serif-title font-royal-blue">THE SACRED RITUALS</h2>
+                    <div class="gold-accent-divider"></div>
+                </div>
+
+                <!-- 6a. Jeelakarra Bellam Merging Animation -->
+                <div class="ritual-block scroll-reveal">
+                    <h3 class="ritual-heading font-royal-blue bold-title">Jeelakarra Bellam</h3>
+                    <div class="jeelakarra-merge-animation">
+                        <div class="merge-item item-cumin" id="cuminIcon">
+                            <div class="cumin-leaf">🌱</div>
+                        </div>
+                        <div class="merge-sparkle" id="mergeSparkle">✨</div>
+                        <div class="merge-item item-jaggery" id="jaggeryIcon">
+                            <div class="jaggery-block">🍯</div>
+                        </div>
+                    </div>
+                    <div class="ritual-info-card glass-panel">
+                        <p class="ritual-desc">
+                            Jeelakarra Bellam symbolizes two individuals becoming inseparable. Just as cumin and jaggery blend together, the bride and groom promise to remain united through every joy and challenge.
+                        </p>
+                        <span class="ritual-essence"><strong>Essence:</strong> Unity Beyond Differences</span>
+                    </div>
+                </div>
+
+                <!-- 6b. Mangalya Dharana Animation -->
+                <div class="ritual-block scroll-reveal">
+                    <h3 class="ritual-heading font-royal-blue bold-title">Mangalya Dharana</h3>
+                    <div class="mangalsutra-animation-container">
+                        <div class="mangalsutra-svg-wrap">
+                            <svg viewBox="0 0 100 100" class="mangalsutra-svg">
+                                <!-- Golden threads/chains -->
+                                <path d="M 10 30 Q 30 70, 50 70 Q 70 70, 90 30" fill="none" stroke="#D4AF37" stroke-width="2" />
+                                <!-- Three knots and coins -->
+                                <circle cx="43" cy="70" r="4" fill="#800020" class="knot-pulse" />
+                                <circle cx="50" cy="73" r="5" fill="#D4AF37" class="coin-glow" />
+                                <circle cx="57" cy="70" r="4" fill="#800020" class="knot-pulse" />
+                            </svg>
+                            <div class="light-ray-glow"></div>
+                        </div>
+                    </div>
+                    <div class="ritual-info-card glass-panel">
+                        <p class="ritual-desc">
+                            A sacred knot tying two hearts together. A promise of companionship, commitment, and protection.
+                        </p>
+                        <span class="ritual-essence"><strong>Essence:</strong> Commitment For Life</span>
+                    </div>
+                </div>
+
+                <!-- 6c. Saptapadi Sequential Timeline -->
+                <div class="ritual-block scroll-reveal">
+                    <h3 class="ritual-heading font-royal-blue bold-title">Saptapadi (The Seven Steps)</h3>
+                    <p class="ritual-subtitle-hint">Follow the footsteps of forever</p>
+                    
+                    <div class="saptapadi-steps-list">
+                        
+                        <!-- Step 1 -->
+                        <div class="saptapadi-step-card glass-panel scroll-reveal">
+                            <div class="step-footprint-wrap">
+                                <div class="footprint-circle">
+                                    <span class="step-num-badge">1</span>
+                                    <span class="footprint-graphic">👣</span>
+                                </div>
+                            </div>
+                            <div class="step-vow-content">
+                                <h4 class="step-vow-heading font-royal-blue">Step 1: Nourishment & Prosperity</h4>
+                                <p class="step-vow-meaning">
+                                    The first step taken together represents a joint vow to provide for the household, seeking nourishment, health, and prosperity for the family.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="saptapadi-step-card glass-panel scroll-reveal">
+                            <div class="step-footprint-wrap">
+                                <div class="footprint-circle">
+                                    <span class="step-num-badge">2</span>
+                                    <span class="footprint-graphic">👣</span>
+                                </div>
+                            </div>
+                            <div class="step-vow-content">
+                                <h4 class="step-vow-heading font-royal-blue">Step 2: Strength & Well-being</h4>
+                                <p class="step-vow-meaning">
+                                    The second step is a vow to share strength and physical health, supporting each other in mind, body, and spirit.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="saptapadi-step-card glass-panel scroll-reveal">
+                            <div class="step-footprint-wrap">
+                                <div class="footprint-circle">
+                                    <span class="step-num-badge">3</span>
+                                    <span class="footprint-graphic">👣</span>
+                                </div>
+                            </div>
+                            <div class="step-vow-content">
+                                <h4 class="step-vow-heading font-royal-blue">Step 3: Growth & Wealth</h4>
+                                <p class="step-vow-meaning">
+                                    The third step is a vow to prosper together, growing in wisdom and wealth, and sharing responsibilities gracefully.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="saptapadi-step-card glass-panel scroll-reveal">
+                            <div class="step-footprint-wrap">
+                                <div class="footprint-circle">
+                                    <span class="step-num-badge">4</span>
+                                    <span class="footprint-graphic">👣</span>
+                                </div>
+                            </div>
+                            <div class="step-vow-content">
+                                <h4 class="step-vow-heading font-royal-blue">Step 4: Love & Happiness</h4>
+                                <p class="step-vow-meaning">
+                                    The fourth step vows to cultivate deep love, mutual respect, trust, and lifelong happiness in our home.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="saptapadi-step-card glass-panel scroll-reveal">
+                            <div class="step-footprint-wrap">
+                                <div class="footprint-circle">
+                                    <span class="step-num-badge">5</span>
+                                    <span class="footprint-graphic">👣</span>
+                                </div>
+                            </div>
+                            <div class="step-vow-content">
+                                <h4 class="step-vow-heading font-royal-blue">Step 5: Family & Blessings</h4>
+                                <p class="step-vow-meaning">
+                                    The fifth step is a promise to cherish our families, raise healthy children, and seek the blessings of elders.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="saptapadi-step-card glass-panel scroll-reveal">
+                            <div class="step-footprint-wrap">
+                                <div class="footprint-circle">
+                                    <span class="step-num-badge">6</span>
+                                    <span class="footprint-graphic">👣</span>
+                                </div>
+                            </div>
+                            <div class="step-vow-content">
+                                <h4 class="step-vow-heading font-royal-blue">Step 6: Health & Longevity</h4>
+                                <p class="step-vow-meaning">
+                                    The sixth step is a prayer for health, peace of mind, and longevity, walking in harmony through all seasons.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 7 -->
+                        <div class="saptapadi-step-card glass-panel scroll-reveal">
+                            <div class="step-footprint-wrap">
+                                <div class="footprint-circle">
+                                    <span class="step-num-badge">7</span>
+                                    <span class="footprint-graphic">👣</span>
+                                </div>
+                            </div>
+                            <div class="step-vow-content">
+                                <h4 class="step-vow-heading font-royal-blue">Step 7: Friendship & Lifelong Companionship</h4>
+                                <p class="step-vow-meaning">
+                                    With the seventh step, we seal our union as lifelong companions, promising true friendship, loyalty, and eternal love.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p class="saptapadi-final-text">"With seven sacred steps, two hearts become one journey."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Family Section -->
+        <section class="section family-section" id="family">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">Warmly Welcoming You</span>
+                    <h2 class="serif-title font-royal-blue">FAMILY BLESSINGS</h2>
+                    <div class="gold-accent-divider"></div>
+                </div>
+
+                <div class="family-grid scroll-reveal">
+                    
+                    <!-- Groom's side -->
+                    <div class="family-card glass-panel">
+                        <div class="family-badge">Groom</div>
+                        <h3 class="family-family-name font-royal-blue">The Tanuku Family</h3>
+                        <div class="family-members-wrap">
+                            <div class="parent-label">Parents</div>
+                            <div class="parent-names">Satya Bhaskar & Padmasri</div>
+                        </div>
+                        <div class="family-members-wrap sibling-wrap">
+                            <div class="parent-label">Sister & Brother-in-law</div>
+                            <div class="sibling-names font-royal-blue">Sruthi Krishna & Vamsi Krishna</div>
+                        </div>
+                        <p class="family-note">Extending our warmest welcome and inviting you to bless our son's new beginning.</p>
+                    </div>
+
+                    <!-- Bride's side -->
+                    <div class="family-card glass-panel">
+                        <div class="family-badge">Bride</div>
+                        <h3 class="family-family-name font-royal-blue">The Kruthiventi family</h3>
+                        <div class="family-members-wrap">
+                            <div class="parent-label">Mother & Late Father</div>
+                            <div class="parent-names">Kavitha & Gopala Krishna Murthy <span class="late-parent">(Late)</span></div>
+                        </div>
+                        <div class="family-members-wrap sibling-wrap">
+                            <div class="parent-label">Younger Brother</div>
+                            <div class="sibling-names font-royal-blue">Aadi Narayana Sai Karthikeya</div>
+                        </div>
+                        <p class="family-note">We seek your presence, prayers, and blessings as our daughter begins her journey of companionship.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Venue Experience -->
+        <section class="section venue-section" id="venue">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">When & Where</span>
+                    <h2 class="serif-title font-royal-blue">THE CELEBRATION VENUES</h2>
+                    <div class="gold-accent-divider"></div>
+                </div>
+
+                <div class="venue-cards-grid scroll-reveal">
+                    
+                    <!-- Venue 1 -->
+                    <div class="venue-detail-card glass-panel">
+                        <div class="venue-header-img">
+                            <div class="venue-img-overlay"></div>
+                            <h3>Galaxy Hall</h3>
+                        </div>
+                        <div class="venue-info-body">
+                            <span class="venue-location-name font-royal-blue">Hotel Shubham Prestige</span>
+                            <p class="venue-events-hosted">Hosting: Haldi, Mehendi, & Sangeet Ceremonies</p>
+                            <p class="venue-date-time font-royal-blue">June 27, 2026</p>
+                            <a href="https://maps.app.goo.gl/ZiyNnpd62ozuSTMB9?g_st=ic" target="_blank" rel="noopener noreferrer" class="btn btn-royal-blue venue-btn">
+                                <i class="fa-solid fa-map-location-dot"></i> Get Directions
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Venue 2 -->
+                    <div class="venue-detail-card glass-panel">
+                        <div class="venue-header-img">
+                            <div class="venue-img-overlay"></div>
+                            <h3>Kalyanamastu</h3>
+                        </div>
+                        <div class="venue-info-body">
+                            <span class="venue-location-name font-royal-blue">Hotel Shubham Prestige</span>
+                            <p class="venue-events-hosted">Hosting: Sumuhurtam (Wedding Ceremony)</p>
+                            <p class="venue-date-time font-royal-blue">June 28, 2026 | 8:49 AM</p>
+                            <a href="https://maps.app.goo.gl/ZiyNnpd62ozuSTMB9?g_st=ic" target="_blank" rel="noopener noreferrer" class="btn btn-royal-blue venue-btn">
+                                <i class="fa-solid fa-map-location-dot"></i> Get Directions
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Interactive Google Map Frame -->
+                <div class="map-iframe-container glass-panel scroll-reveal">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3803.957597950346!2d78.48123287516886!3d17.556277983358055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8f8b50f75727%3A0xc4ebcd3a2f8b5d0c!2sHotel%20Shubham%20Prestige!5e0!3m2!1sen!2sin!4v1718790000000!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        title="Hotel Shubham Prestige Interactive Map">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. RSVP Experience -->
+        <section class="section rsvp-section" id="rsvp">
+            <div class="container">
+                <div class="rsvp-card-wrapper glass-panel scroll-reveal">
+                    <span class="script-accent-text">Join our celebration</span>
+                    <h2 class="serif-title font-royal-blue">WILL YOU BE THERE?</h2>
+                    <div class="gold-accent-divider"></div>
+                    <p class="rsvp-description">
+                        We look forward to celebrating this beautiful milestone with you. Please confirm your presence via WhatsApp to help us prepare.
+                    </p>
+
+                    <div class="rsvp-action-wrap" style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                        <a id="whatsappRsvpBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-royal-blue btn-large">
+                            <i class="fa-brands fa-whatsapp"></i> Confirm Presence via WhatsApp
+                        </a>
+                        <a id="shareInvitationBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-royal-blue btn-large" style="background: transparent; color: var(--color-royal-blue); border-color: var(--color-royal-blue);">
+                            <i class="fa-solid fa-share-nodes"></i> Share Invitation on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Ending Experience & Final Countdown -->
+        <footer class="ending-section" id="ending">
+            <div class="container scroll-reveal">
+                <!-- Monogram Logo -->
+                <div class="monogram-wrapper scroll-reveal" style="margin-bottom: 1.5rem;">
+                    <img src="assets/ks_logo.png" alt="K&S Monogram Logo" class="monogram-logo-img">
+                </div>
+
+                <p class="ending-invite-phrase">"We would be honoured by your presence as we begin our forever."</p>
+                <h3 class="ending-couple-names font-royal-blue">Krishna Deepak & Sindhu Sri</h3>
+                
+                <div class="save-the-date-card glass-panel">
+                    <span class="save-title">Save The Date</span>
+                    <span class="save-date font-royal-blue">28 JUNE 2026</span>
+                    
+                    <!-- Small ticking footer countdown -->
+                    <div class="footer-countdown" id="footerCountdown">
+                        <div class="f-countdown-box"><span id="f-days" class="font-royal-blue">00</span>d</div>
+                        <div class="f-countdown-box"><span id="f-hours" class="font-royal-blue">00</span>h</div>
+                        <div class="f-countdown-box"><span id="f-minutes" class="font-royal-blue">00</span>m</div>
+                        <div class="f-countdown-box"><span id="f-seconds" class="font-royal-blue">00</span>s</div>
+                    </div>
+                </div>
+
+                <div class="gold-accent-divider" style="margin: 2.5rem auto 1.5rem;"></div>
+                <p class="copyright-text">&copy; 2026. Custom Royal Indian Wedding Microsite.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
