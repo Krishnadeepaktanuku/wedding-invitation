@@ -229,29 +229,130 @@
                         </div>
                     </div>
 
-                    <!-- Event 4: Sumuhurtam -->
-                    <div class="scratch-card-wrapper event-wedding">
-                        <div class="scratch-card-inner">
-                            <!-- Revealed Event Details -->
-                            <div class="event-details-revealed bg-wedding">
-                                <span class="event-icon"><i class="fa-solid fa-hands-bound"></i></span>
-                                <h3 class="event-title">Sumuhurtam</h3>
-                                <span class="event-subtitle">The Wedding Ceremony</span>
-                                <p class="event-text">
-                                    Two souls. Two families. One sacred journey. Under divine blessings, Krishna Deepak and Sindhu Sri begin forever.
-                                </p>
-                                <div class="event-key-points">
-                                    <span><strong>Essence:</strong> Commitment for Life</span>
-                                    <span><strong>Date:</strong> 28 June 2026</span>
-                                    <span><strong>Time:</strong> 8:49 AM Sharp</span>
-                                    <span><strong>Venue:</strong> Kalyanamastu, Hotel Shubham Prestige</span>
-                                </div>
-                            </div>
-                            <!-- Scratch Foil Canvas -->
-                            <canvas id="scratchCanvas4" class="scratch-canvas" width="400" height="480"></canvas>
-                        </div>
+                </div>
+
+                <!-- Divine Sumuhurtam Section -->
+                <div id="sumuhurtamDivineSection" class="sumuhurtam-divine-card glass-panel scroll-reveal">
+                    <!-- Hanging Temple Bells -->
+                    <div class="bell-container left-bell-container">
+                        <svg class="temple-bell bell-left" viewBox="0 0 100 150">
+                            <!-- Chain -->
+                            <line x1="50" y1="0" x2="50" y2="60" stroke="#D4AF37" stroke-width="3" stroke-dasharray="1 3"/>
+                            <!-- Bell body -->
+                            <path d="M35,60 Q50,45 65,60 L75,100 Q75,115 50,115 Q25,115 25,100 Z" fill="url(#divineGoldGrad)" stroke="#AA771C" stroke-width="2"/>
+                            <!-- Clapper (bell inner ring) -->
+                            <circle cx="50" cy="120" r="7" fill="#800020"/>
+                            <!-- Bell rim ring -->
+                            <rect x="23" y="98" width="54" height="6" rx="3" fill="#FFE259" stroke="#AA771C" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div class="bell-container right-bell-container">
+                        <svg class="temple-bell bell-right" viewBox="0 0 100 150">
+                            <!-- Chain -->
+                            <line x1="50" y1="0" x2="50" y2="60" stroke="#D4AF37" stroke-width="3" stroke-dasharray="1 3"/>
+                            <!-- Bell body -->
+                            <path d="M35,60 Q50,45 65,60 L75,100 Q75,115 50,115 Q25,115 25,100 Z" fill="url(#divineGoldGrad)" stroke="#AA771C" stroke-width="2"/>
+                            <!-- Clapper -->
+                            <circle cx="50" cy="120" r="7" fill="#800020"/>
+                            <!-- Bell rim ring -->
+                            <rect x="23" y="98" width="54" height="6" rx="3" fill="#FFE259" stroke="#AA771C" stroke-width="1.5"/>
+                        </svg>
                     </div>
 
+                    <!-- Divine Venkateswara Swamy Blessing Graphics -->
+                    <div class="divine-blessing-graphic">
+                        <!-- Golden Rotating Sunburst -->
+                        <div class="sunburst-glow"></div>
+                        
+                        <!-- Swamy Venkateswara SVG -->
+                        <svg class="venkateswara-svg" viewBox="0 0 400 300">
+                            <defs>
+                                <linearGradient id="divineGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#FFE259" />
+                                    <stop offset="30%" stop-color="#FFF6BD" />
+                                    <stop offset="70%" stop-color="#D4AF37" />
+                                    <stop offset="100%" stop-color="#AA771C" />
+                                </linearGradient>
+                                <filter id="divineGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="6" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+                            
+                            <g class="venkateswara-group">
+                                <!-- Outer Halo -->
+                                <circle cx="200" cy="150" r="110" fill="none" stroke="url(#divineGoldGrad)" stroke-width="1.5" stroke-dasharray="3 6" opacity="0.6"/>
+                                
+                                <!-- Crown (Kireetam) -->
+                                <path d="M170,80 L230,80 L220,35 Q200,10 180,35 Z" fill="url(#divineGoldGrad)" stroke="#AA771C" stroke-width="2"/>
+                                <path d="M185,80 L200,35 L215,80 Z" fill="#FFE259" stroke="#AA771C" stroke-width="1"/>
+                                <circle cx="200" cy="25" r="5" fill="#FF3E6C" />
+                                <circle cx="200" cy="55" r="5" fill="#00FF87" />
+                                
+                                <!-- Divine Eyes (Closed in Meditation/Blessing) -->
+                                <path d="M165,160 Q175,165 185,160" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+                                <path d="M215,160 Q225,165 235,160" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+                                
+                                <!-- Sacred Namam (Tilakam) -->
+                                <path d="M176,95 L188,95 L188,135 Q188,143 200,143 Q212,143 212,135 L212,95 L224,95 L224,135 Q224,155 200,155 Q176,155 176,135 Z" fill="#FFFFFF" filter="url(#divineGlow)"/>
+                                <path d="M196,100 L204,100 L204,138 Q204,143 200,143 Q196,143 196,138 Z" fill="#FF3E6C" filter="url(#divineGlow)"/>
+                                <circle cx="200" cy="165" r="3.5" fill="url(#divineGoldGrad)"/>
+                                
+                                <!-- Left Shankha (Conch) -->
+                                <g transform="translate(100, 110) scale(0.6)">
+                                    <path d="M50,10 Q20,30 20,60 Q20,100 50,110 Q80,100 80,60 Q80,30 50,10" fill="none" stroke="url(#divineGoldGrad)" stroke-width="4.5" stroke-linecap="round"/>
+                                    <path d="M50,10 Q35,40 50,110" fill="none" stroke="url(#divineGoldGrad)" stroke-width="2"/>
+                                    <path d="M50,10 Q65,40 50,110" fill="none" stroke="url(#divineGoldGrad)" stroke-width="2"/>
+                                    <path d="M50,30 Q40,50 50,70 Q60,90 50,110" fill="none" stroke="url(#divineGoldGrad)" stroke-width="3" stroke-linecap="round"/>
+                                    <!-- Sparkles/Flames -->
+                                    <path d="M15,50 Q-5,50 5,35 Q15,45 15,50" fill="#FFE259" opacity="0.9"/>
+                                    <path d="M85,50 Q105,50 95,35 Q85,45 85,50" fill="#FFE259" opacity="0.9"/>
+                                </g>
+                                
+                                <!-- Right Chakra (Discus) -->
+                                <g transform="translate(240, 110) scale(0.6)">
+                                    <circle cx="50" cy="60" r="40" fill="none" stroke="url(#divineGoldGrad)" stroke-width="4.5"/>
+                                    <circle cx="50" cy="60" r="10" fill="url(#divineGoldGrad)"/>
+                                    <line x1="50" y1="20" x2="50" y2="100" stroke="url(#divineGoldGrad)" stroke-width="2.5"/>
+                                    <line x1="10" y1="60" x2="90" y2="60" stroke="url(#divineGoldGrad)" stroke-width="2.5"/>
+                                    <line x1="22" y1="32" x2="78" y2="88" stroke="url(#divineGoldGrad)" stroke-width="2.5"/>
+                                    <line x1="22" y1="88" x2="78" y2="32" stroke="url(#divineGoldGrad)" stroke-width="2.5"/>
+                                    <!-- Sparkles/Flames -->
+                                    <path d="M10,60 Q-10,60 0,45 Q10,55 10,60" fill="#FFE259" opacity="0.9"/>
+                                    <path d="M90,60 Q110,60 100,45 Q90,55 90,60" fill="#FFE259" opacity="0.9"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- Sumuhurtam Wedding Details Card content -->
+                    <div class="sumuhurtam-details-body">
+                        <h3 class="sumuhurtam-title font-royal-blue"><span class="telugu-word">సుముహూర్తం</span><br>SUMUHURTAM</h3>
+                        <span class="sumuhurtam-subtitle">The Wedding Ceremony</span>
+                        
+                        <p class="sumuhurtam-text">
+                            Two souls. Two families. One sacred journey. Under divine blessings, Krishna Deepak and Sindhu Sri begin forever. Join us as the sacred grains of Akshata unite us in love and eternity.
+                        </p>
+                        
+                        <div class="sumuhurtam-grid">
+                            <div class="sumuhurtam-item">
+                                <span class="item-lbl"><i class="fa-solid fa-hands-bound"></i> Essence:</span>
+                                <span class="item-val">Commitment for Life</span>
+                            </div>
+                            <div class="sumuhurtam-item">
+                                <span class="item-lbl"><i class="fa-solid fa-calendar-day"></i> Date:</span>
+                                <span class="item-val">Sunday, 28 June 2026</span>
+                            </div>
+                            <div class="sumuhurtam-item">
+                                <span class="item-lbl"><i class="fa-solid fa-clock"></i> Time:</span>
+                                <span class="item-val">8:49 AM Sharp (Vrischika Lagnam)</span>
+                            </div>
+                            <div class="sumuhurtam-item">
+                                <span class="item-lbl"><i class="fa-solid fa-map-pin"></i> Venue:</span>
+                                <span class="item-val">Kalyanamastu, Hotel Shubham Prestige</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

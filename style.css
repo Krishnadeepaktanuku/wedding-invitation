@@ -769,11 +769,11 @@ body {
 
 .scratch-cards-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
 }
 
 .scratch-card-wrapper {
@@ -897,10 +897,281 @@ body {
 }
 
 /* Event Specific Background Themes */
-.event-haldi .event-details-revealed { background: linear-gradient(135deg, #E65C00, #F4B400); }
-.event-mehendi .event-details-revealed { background: linear-gradient(135deg, #075E45, #0F7B5F); }
-.event-sangeet .event-details-revealed { background: linear-gradient(135deg, #371E5F, #5B3A8E); }
-.event-wedding .event-details-revealed { background: linear-gradient(135deg, #4A0010, #800020); border: 2px solid var(--color-temple-gold); }
+.event-haldi .event-details-revealed {
+    background: linear-gradient(135deg, #FFFDF0, #FFF5CC, #FFEFA6);
+    color: #5C4508;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+}
+.event-haldi .event-details-revealed .event-icon i {
+    color: #B8860B;
+}
+.event-haldi .event-details-revealed .event-title {
+    color: #4B3607;
+}
+.event-haldi .event-details-revealed .event-subtitle {
+    color: #614B15;
+    border-bottom: 1px solid rgba(97, 75, 21, 0.25);
+}
+.event-haldi .event-details-revealed .event-text {
+    color: #5C4508;
+}
+.event-haldi .event-details-revealed .event-key-points {
+    border-top: 1px dashed rgba(97, 75, 21, 0.25);
+}
+.event-haldi .event-details-revealed .event-key-points span {
+    color: #5C4508;
+}
+
+.event-mehendi .event-details-revealed {
+    background: linear-gradient(135deg, #D91A5F, #E65C00, #FFB300, #008E5F, #006B9E, #5B1EB2);
+    color: var(--bg-ivory);
+}
+
+.event-sangeet .event-details-revealed {
+    background: linear-gradient(135deg, #7F00FF, #FF007F, #FF1493, #FF8E53);
+    color: var(--bg-ivory);
+}
+
+/* ==========================================
+   Divine Sumuhurtam Section Styles
+   ========================================== */
+.sumuhurtam-divine-card {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 4rem auto 0;
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    background: linear-gradient(135deg, #4A0010, #660017, #800020, #33000A);
+    border: 2px solid var(--color-temple-gold);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(212, 175, 55, 0.15);
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Hanging Temple Bells */
+.bell-container {
+    position: absolute;
+    top: -10px;
+    width: 60px;
+    height: 100px;
+    z-index: 10;
+}
+
+.left-bell-container {
+    left: 40px;
+}
+
+.right-bell-container {
+    right: 40px;
+}
+
+.temple-bell {
+    width: 100%;
+    height: 100%;
+    transform-origin: top center;
+    transition: transform 0.5s ease-out;
+}
+
+/* Bell Swing Animations */
+@keyframes swingLeftBell {
+    0%, 100% { transform: rotate(0deg); }
+    20% { transform: rotate(15deg); }
+    40% { transform: rotate(-12deg); }
+    60% { transform: rotate(8deg); }
+    80% { transform: rotate(-4deg); }
+}
+
+@keyframes swingRightBell {
+    0%, 100% { transform: rotate(0deg); }
+    20% { transform: rotate(-15deg); }
+    40% { transform: rotate(12deg); }
+    60% { transform: rotate(-8deg); }
+    80% { transform: rotate(4deg); }
+}
+
+.sumuhurtam-divine-card.divine-active .bell-left {
+    animation: swingLeftBell 4.5s ease-in-out infinite;
+}
+
+.sumuhurtam-divine-card.divine-active .bell-right {
+    animation: swingRightBell 4.5s ease-in-out infinite;
+}
+
+/* Sunburst background glow */
+.sunburst-glow {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 226, 89, 0.25) 0%, rgba(212, 175, 55, 0.05) 50%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 1.5s ease-in-out;
+    opacity: 0;
+}
+
+.sumuhurtam-divine-card.divine-active .sunburst-glow {
+    opacity: 1;
+    animation: pulseGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { transform: translateX(-50%) scale(0.9); opacity: 0.8; }
+    100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+}
+
+/* Venkateswara Graphic Reveal */
+.divine-blessing-graphic {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    margin-bottom: 1.5rem;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.venkateswara-svg {
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+    overflow: visible;
+}
+
+.venkateswara-group {
+    transform: translateY(-40px);
+    opacity: 0;
+    transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.5s ease-out;
+}
+
+.sumuhurtam-divine-card.divine-active .venkateswara-group {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Halo rotation */
+.sumuhurtam-divine-card.divine-active .venkateswara-svg circle[stroke-dasharray="3 6"] {
+    animation: rotateHalo 25s linear infinite;
+    transform-origin: 200px 150px;
+}
+
+@keyframes rotateHalo {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Blessing glow rays */
+.venkateswara-svg filter#divineGlow feGaussianBlur {
+    animation: glowFluctuate 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowFluctuate {
+    0% { stdDeviation: 4; }
+    100% { stdDeviation: 8; }
+}
+
+/* Sumuhurtam Text details styling */
+.sumuhurtam-details-body {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.telugu-word {
+    font-family: 'Gautami', 'NTR', 'Ramabhadra', 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-temple-gold);
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.sumuhurtam-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.4rem;
+    color: var(--color-temple-gold) !important;
+    line-height: 1.2;
+}
+
+.sumuhurtam-subtitle {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--bg-ivory);
+    opacity: 0.85;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 0.4rem;
+    width: 60%;
+    max-width: 300px;
+}
+
+.sumuhurtam-text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    color: var(--bg-ivory);
+    max-width: 650px;
+}
+
+.sumuhurtam-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 2.5rem;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(212, 175, 55, 0.25);
+}
+
+.sumuhurtam-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.sumuhurtam-item .item-lbl {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-temple-gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sumuhurtam-item .item-lbl i {
+    font-size: 0.85rem;
+}
+
+.sumuhurtam-item .item-val {
+    font-size: 0.95rem;
+    color: var(--bg-ivory);
+    font-weight: 300;
+}
 
 /* ==========================================================================
    7. Sacred Rituals Experience
@@ -1645,7 +1916,35 @@ body {
     .scratch-cards-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
-        max-width: 380px;
+        max-width: 360px;
+    }
+    
+    .sumuhurtam-divine-card {
+        padding: 2.5rem 1.5rem;
+        margin-top: 3rem;
+    }
+    
+    .left-bell-container {
+        left: 20px;
+    }
+    
+    .right-bell-container {
+        right: 20px;
+    }
+    
+    .bell-container {
+        width: 45px;
+        height: 80px;
+    }
+    
+    .sumuhurtam-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .sumuhurtam-item {
+        align-items: center;
+        text-align: center;
     }
     
     .saptapadi-step-card {

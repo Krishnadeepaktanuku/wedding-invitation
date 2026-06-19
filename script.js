@@ -202,6 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================== */
     const scrollElements = document.querySelectorAll('.scroll-reveal');
     const jeelakarraBlock = document.querySelector('.jeelakarra-merge-animation');
+    const sumuhurtamCard = document.getElementById('sumuhurtamDivineSection');
+    let hasPlayedSumuhurtamBell = false;
     
     const elementInView = (el, dividend = 1) => {
         const elementTop = el.getBoundingClientRect().top;
@@ -224,6 +226,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (jeelakarraBlock && elementInView(jeelakarraBlock, 1.2)) {
             jeelakarraBlock.classList.add('merged');
         }
+
+        if (sumuhurtamCard && elementInView(sumuhurtamCard, 1.15)) {
+            sumuhurtamCard.classList.add('divine-active');
+            if (!hasPlayedSumuhurtamBell) {
+                hasPlayedSumuhurtamBell = true;
+                playTempleBellSound();
+            }
+        }
     };
 
     window.addEventListener('scroll', handleScrollAnimation);
@@ -234,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
        5. Auto-Reveal Scratch Card Engine (Google Pay Style)
        ========================================== */
     const initScratchCards = () => {
-        for (let i = 1; i <= 4; i++) {
+        for (let i = 1; i <= 3; i++) {
             const canvas = document.getElementById(`scratchCanvas${i}`);
             if (!canvas) continue;
             
