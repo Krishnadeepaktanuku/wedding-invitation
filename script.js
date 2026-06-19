@@ -9,10 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================
        1. Persistent Audio & Temple Doors Opening
        ========================================== */
-    const divineStartBtn = document.getElementById('divineStartBtn');
-    const divineStartContainer = document.getElementById('divineStartContainer');
-    const walkingLordWrapper = document.getElementById('walkingLordWrapper');
-    const divineSpeechBubble = document.getElementById('divineSpeechBubble');
+    const doorKnocker = document.getElementById('doorKnocker');
     const doorsWrapper = document.getElementById('templeDoorsWrapper');
     const mainContent = document.getElementById('mainScrollContainer');
     const bgMusic = document.getElementById('bgMusic');
@@ -49,70 +46,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Open Door Action Sequence
-    const runDivineIntroSequence = () => {
-        // 1. Hide Start Button
-        if (divineStartContainer) {
-            divineStartContainer.style.opacity = '0';
-            divineStartContainer.style.pointerEvents = 'none';
-        }
+    // Open Door Action
+    const openTempleDoors = () => {
+        playTempleBellSound();
         
-        // 2. Play background music
+        doorsWrapper.classList.add('open');
+        mainContent.classList.remove('hidden-content');
+        mainContent.classList.add('visible-content');
+        
         bgMusic.play().then(() => {
             isMusicPlaying = true;
             musicBtn.classList.add('playing');
             musicText.innerText = "Pause Music";
         }).catch(err => {
-            console.log("Autoplay policy restriction:", err);
+            console.log("Autoplay blocked. User can play manually.", err);
         });
 
-        // 3. Start Lord Venkateswara walking (after button fades slightly)
         setTimeout(() => {
-            if (walkingLordWrapper) {
-                walkingLordWrapper.classList.add('walking');
-            }
-        }, 500);
+            const heroReveals = document.querySelectorAll('.hero-content .scroll-reveal');
+            heroReveals.forEach(element => {
+                element.classList.add('visible');
+            });
+        }, 300);
 
-        // 4. walkingLordWrapper completes walking at 3.5s -> play bells and show announcement bubble
-        setTimeout(() => {
-            playTempleBellSound();
-            if (divineSpeechBubble) {
-                divineSpeechBubble.classList.add('bubble-active');
-            }
-        }, 4000);
-
-        // 5. Hide bubble, fade out lord, and slide open the temple doors at 7.5s
-        setTimeout(() => {
-            if (divineSpeechBubble) {
-                divineSpeechBubble.classList.remove('bubble-active');
-            }
-            if (walkingLordWrapper) {
-                walkingLordWrapper.style.opacity = '0';
-                walkingLordWrapper.style.transform = 'translate(-50%, -45%) scale(0.6)';
-            }
-            
-            // Slide open doors
-            doorsWrapper.classList.add('open');
-            mainContent.classList.remove('hidden-content');
-            mainContent.classList.add('visible-content');
-
-            // Fade in Hero content
-            setTimeout(() => {
-                const heroReveals = document.querySelectorAll('.hero-content .scroll-reveal');
-                heroReveals.forEach(element => {
-                    element.classList.add('visible');
-                });
-            }, 300);
-        }, 7500);
-
-        // 6. Completely hide doors wrapper at 9.7s
         setTimeout(() => {
             doorsWrapper.style.display = 'none';
-        }, 9700);
+        }, 2200);
     };
 
-    if (divineStartBtn) {
-        divineStartBtn.addEventListener('click', runDivineIntroSequence);
+    if (doorKnocker) {
+        doorKnocker.addEventListener('click', openTempleDoors);
     }
 
     musicBtn.addEventListener('click', () => {
@@ -502,6 +465,35 @@ document.addEventListener('DOMContentLoaded', () => {
         const shareMessage = "Namaskaram! 🌸\nWe cordially invite you to celebrate the royal union of Krishna Deepak & Sindhu Sri. Please find our wedding invitation microsite below to view the details and confirm your presence:\n\n" + currentUrl;
         const shareEncoded = encodeURIComponent(shareMessage);
         shareBtn.setAttribute('href', `https://api.whatsapp.com/send?text=${shareEncoded}`);
+    }
+
+    // Inner Sumuhurtam Doors Reveal Sequence
+    const revealSumuhurtamBtn = document.getElementById('revealSumuhurtamBtn');
+    const innerWalkingLord = document.getElementById('innerWalkingLord');
+    const sumuhurtamDivineSection = document.getElementById('sumuhurtamDivineSection');
+
+    if (revealSumuhurtamBtn) {
+        revealSumuhurtamBtn.addEventListener('click', () => {
+            // Play initial chime
+            playTempleBellSound();
+            
+            // Hide reveal button
+            revealSumuhurtamBtn.style.opacity = '0';
+            revealSumuhurtamBtn.style.pointerEvents = 'none';
+            
+            // Start walking animation
+            if (innerWalkingLord) {
+                innerWalkingLord.classList.add('walking');
+            }
+            
+            // At 3.5 seconds: play chime again and slide doors open to reveal details
+            setTimeout(() => {
+                playTempleBellSound();
+                if (sumuhurtamDivineSection) {
+                    sumuhurtamDivineSection.classList.add('doors-open');
+                }
+            }, 3500);
+        });
     }
 
 });
