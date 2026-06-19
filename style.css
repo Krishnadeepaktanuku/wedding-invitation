@@ -169,79 +169,162 @@ body {
     border-bottom: 2px dashed rgba(212, 175, 55, 0.3);
 }
 
-/* Door Knocker / Lock Ring */
-.door-knocker-wrap {
+/* ==========================================================================
+   Divine Intro Sequence Styles
+   ========================================================================== */
+.divine-start-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-    cursor: pointer;
-    transition: opacity 0.8s ease;
-}
-
-.temple-doors-wrapper.open .door-knocker-wrap {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.knocker-ring {
-    width: 130px;
-    height: 130px;
-    border: 4px solid var(--color-temple-gold);
-    border-radius: 50%;
-    background: #4A0010;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(0,0,0,0.5);
-    animation: ringPulse 2.5s infinite ease-in-out;
+    gap: 1.5rem;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.knocker-text {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
+.divine-start-btn {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+    border: 2px solid var(--color-temple-gold) !important;
+    background: linear-gradient(135deg, #800020, #4A0010) !important;
+    color: var(--color-temple-gold) !important;
     font-weight: 700;
     letter-spacing: 2px;
-    color: var(--color-champagne);
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    padding: 1.2rem 2.4rem;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    animation: buttonPulse 2s infinite alternate;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-.knocker-center-dot {
-    width: 12px;
-    height: 12px;
-    background: var(--gold-metallic);
-    border-radius: 50%;
-    margin-top: 10px;
-    box-shadow: var(--gold-glow);
+.divine-start-btn:active {
+    transform: scale(0.95);
 }
 
-.knocker-couple-names {
+@keyframes buttonPulse {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+    100% { transform: scale(1.05); box-shadow: 0 0 30px rgba(212, 175, 55, 0.7); }
+}
+
+.intro-names-subtitle {
     font-family: var(--font-heading-dec);
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--color-champagne);
-    margin-top: 1.5rem;
     text-shadow: 0 3px 8px rgba(0,0,0,0.8);
     letter-spacing: 1px;
 }
 
-.knocker-intro-text {
+.intro-request-text {
     font-family: var(--font-serif);
     font-size: 1rem;
     font-style: italic;
     color: #e5c38c;
-    margin-top: 0.5rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
-@keyframes ringPulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
-    50% { transform: scale(1.05); box-shadow: 0 0 35px rgba(212, 175, 55, 0.7), var(--gold-glow); }
+.walking-lord-wrapper {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -45%) scale(0.2);
+    width: 280px;
+    height: 420px;
+    z-index: 80000;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 3.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 2.5s ease-out;
+}
+
+.walking-lord-wrapper.walking {
+    opacity: 1;
+    transform: translate(-50%, -45%) scale(1);
+    animation: gentleWalkSway 3.5s ease-in-out infinite;
+}
+
+@keyframes gentleWalkSway {
+    0%, 100% { transform: translate(-50%, -45%) scale(1) rotate(0deg); }
+    25% { transform: translate(-49%, -46%) scale(1) rotate(1deg); }
+    75% { transform: translate(-51%, -46%) scale(1) rotate(-1deg); }
+}
+
+.walking-lord-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 15px rgba(255, 226, 89, 0.6));
+}
+
+.divine-speech-bubble {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -120%) scale(0.8);
+    width: 320px;
+    background: linear-gradient(135deg, #800020, #4A0010);
+    border: 2px solid var(--color-temple-gold);
+    border-radius: 15px;
+    padding: 1.2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.4);
+    color: var(--bg-ivory);
+    z-index: 90000;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+    text-align: center;
+}
+
+.divine-speech-bubble.bubble-active {
+    opacity: 1;
+    transform: translate(-50%, -120%) scale(1);
+}
+
+.speech-bubble-arrow {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--color-temple-gold);
+}
+
+.speech-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-temple-gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.speech-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.speech-desc strong {
+    color: var(--color-temple-gold);
+}
+
+.speech-welcome {
+    font-size: 0.75rem;
+    font-style: italic;
+    opacity: 0.9;
+    display: block;
+    border-top: 1px dashed rgba(212, 175, 55, 0.3);
+    padding-top: 0.4rem;
+    margin-top: 0.4rem;
 }
 
 /* ==========================================================================
@@ -2132,6 +2215,41 @@ body {
     }
     50% {
         transform: translateY(-8px);
+    }
+}
+
+/* Mobile Responsive Overrides for Divine Intro Sequence */
+@media (max-width: 480px) {
+    .divine-speech-bubble {
+        width: 270px;
+        padding: 0.8rem;
+        transform: translate(-50%, -130%) scale(0.8);
+    }
+    .divine-speech-bubble.bubble-active {
+        transform: translate(-50%, -130%) scale(1);
+    }
+    .speech-title {
+        font-size: 0.95rem;
+    }
+    .speech-desc {
+        font-size: 0.85rem;
+    }
+    .speech-welcome {
+        font-size: 0.7rem;
+    }
+    .walking-lord-wrapper {
+        width: 200px;
+        height: 300px;
+    }
+    .intro-names-subtitle {
+        font-size: 1.5rem;
+    }
+    .intro-request-text {
+        font-size: 0.85rem;
+    }
+    .divine-start-btn {
+        font-size: 0.9rem;
+        padding: 1rem 1.8rem;
     }
 }
 

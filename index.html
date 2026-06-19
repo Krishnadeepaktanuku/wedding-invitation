@@ -39,14 +39,109 @@
                 <div class="mango-leaves-hanging"></div>
             </div>
         </div>
-        <!-- Door Knocker / Lock Ring -->
-        <div id="doorKnocker" class="door-knocker-wrap">
-            <div class="knocker-ring">
-                <span class="knocker-text">TAP TO ENTER</span>
-                <div class="knocker-center-dot"></div>
+
+        <!-- Divine Start Container -->
+        <div id="divineStartContainer" class="divine-start-container">
+            <button id="divineStartBtn" class="btn btn-royal-blue btn-large divine-start-btn">
+                <i class="fa-solid fa-om"></i> Receive Blessings & Enter
+            </button>
+            <div class="intro-names-subtitle">Krishna Deepak & Sindhu Sri</div>
+            <div class="intro-request-text">Request the honor of your presence</div>
+        </div>
+
+        <!-- Walking Lord Venkateswara Wrapper -->
+        <div id="walkingLordWrapper" class="walking-lord-wrapper">
+            <!-- Standing Lord Venkateswara Outline SVG -->
+            <svg class="walking-lord-svg" viewBox="0 0 200 300">
+                <defs>
+                    <linearGradient id="goldGradIntro" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FFE259" />
+                        <stop offset="50%" stop-color="#D4AF37" />
+                        <stop offset="100%" stop-color="#AA771C" />
+                    </linearGradient>
+                    <filter id="divineGlowIntro" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="5" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                </defs>
+
+                <g stroke="url(#goldGradIntro)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Lotus Pedestal -->
+                    <path d="M70,270 C80,265 90,265 100,265 C110,265 120,265 130,270 C140,275 145,280 130,285 C115,290 85,290 70,285 C55,280 60,275 70,270 Z" fill="#AA771C" opacity="0.2" />
+                    <path d="M65,270 Q100,290 135,270 Q120,280 100,280 Q80,280 65,270" fill="#FF3E6C" opacity="0.3" stroke="#FF3E6C" />
+                    <path d="M55,275 Q100,298 145,275 M75,270 Q100,255 125,270" />
+
+                    <!-- Crown (Kireetam) -->
+                    <path d="M85,55 L115,55 L110,25 Q100,8 90,25 Z" fill="url(#goldGradIntro)" opacity="0.3"/>
+                    <path d="M92,55 L100,25 L108,55 M95,25 L105,25 M97,40 L103,40" />
+                    <circle cx="100" cy="12" r="3" fill="#FF3E6C" stroke="none" />
+
+                    <!-- Head and Ears -->
+                    <path d="M88,55 C88,68 88,78 100,78 C112,78 112,68 112,55" />
+                    <path d="M85,58 Q80,68 87,70 M115,58 Q120,68 113,70" />
+
+                    <!-- Holy Namam -->
+                    <g stroke="none" fill="#FFFFFF">
+                        <path d="M94,58 L98,58 L98,68 Q98,72 100,72 Q102,72 102,68 L102,58 L106,58 L106,68 Q106,76 100,76 Q94,76 94,68 Z" />
+                        <path d="M99,60 L101,60 L101,70 Q101,72 100,72 Q99,72 99,70 Z" fill="#FF3E6C" />
+                    </g>
+
+                    <!-- Face Details -->
+                    <path d="M90,70 Q95,72 98,70 M102,70 Q105,72 110,70" stroke="#FFFFFF" stroke-width="1" />
+                    <path d="M97,74 Q100,76 103,74" stroke="url(#goldGradIntro)" stroke-width="1" />
+
+                    <!-- Neck and Torso -->
+                    <path d="M94,78 Q100,84 106,78" />
+                    <path d="M82,88 Q100,86 118,88 M80,88 C80,120 85,150 85,180 C85,210 88,240 88,260 M120,88 C120,120 115,150 115,180 C115,210 112,240 112,260" />
+                    
+                    <!-- Chest Ornaments -->
+                    <path d="M90,88 Q100,105 110,88 M86,95 Q100,120 114,95 M83,105 Q100,135 117,105 M80,120 Q100,160 120,120" />
+                    <rect x="96" y="112" width="8" height="8" rx="1" fill="url(#goldGradIntro)" opacity="0.4" />
+
+                    <!-- Shoulders and Arms -->
+                    <path d="M80,88 Q65,95 62,110 L62,130" />
+                    <path d="M120,88 Q135,95 138,110 L138,130" />
+
+                    <!-- Upper Hands (Shankha / Chakra) -->
+                    <path d="M62,110 Q50,105 45,95 L45,85" />
+                    <g transform="translate(37, 65) scale(0.18)" stroke="url(#goldGradIntro)">
+                        <path d="M50,10 Q20,30 20,60 Q20,100 50,110 Q80,100 80,60 Q80,30 50,10 Z" fill="url(#goldGradIntro)" opacity="0.3"/>
+                        <path d="M50,10 Q35,40 50,110 M50,10 Q65,40 50,110" />
+                    </g>
+
+                    <path d="M138,110 Q150,105 155,95 L155,85" />
+                    <g transform="translate(143, 65) scale(0.18)" stroke="url(#goldGradIntro)">
+                        <circle cx="50" cy="60" r="40" fill="url(#goldGradIntro)" opacity="0.3"/>
+                        <circle cx="50" cy="60" r="10" />
+                        <line x1="50" y1="20" x2="50" y2="100" />
+                        <line x1="10" y1="60" x2="90" y2="60" />
+                    </g>
+
+                    <!-- Lower Hands (Blessing / Hip) -->
+                    <path d="M62,130 Q60,150 55,160 L50,175" />
+                    <path d="M50,175 Q42,175 42,165 Q42,158 50,155 L52,155" fill="url(#goldGradIntro)" opacity="0.3"/>
+                    <path d="M38,155 L30,152 M36,165 L28,165 M38,175 L30,178" stroke="#FFE259" stroke-width="1" />
+
+                    <path d="M138,130 Q140,150 145,160 L130,165" />
+                    <path d="M130,165 Q125,165 122,170 Q122,175 130,175 Z" fill="url(#goldGradIntro)" opacity="0.3"/>
+
+                    <!-- Waist Silks and Dhoti -->
+                    <path d="M85,180 Q100,195 115,180 M85,200 Q100,215 115,200 M86,220 Q100,235 114,220" />
+                    <path d="M78,165 Q70,210 75,250 M122,165 Q130,210 125,250" />
+                    <path d="M96,180 L96,260 M104,180 L104,260 M100,180 L100,260" />
+                </g>
+            </svg>
+
+            <!-- Divine Announcement Speech Bubble -->
+            <div id="divineSpeechBubble" class="divine-speech-bubble">
+                <div class="speech-bubble-arrow"></div>
+                <span class="speech-title">సుముహూర్తం | SUMUHURTAM</span>
+                <p class="speech-desc">
+                    జూన్ 28న ఉదయం 8:49 గంటలకు (sharp)<br>
+                    <strong>June 28, 2026 at 8:49 AM Sharp</strong>
+                </p>
+                <span class="speech-welcome">మీ అందరికీ సాదర ఆహ్వానం! | You are warmly invited!</span>
             </div>
-            <div class="knocker-couple-names">Krishna Deepak & Sindhu Sri</div>
-            <div class="knocker-intro-text">Request the honor of your presence</div>
         </div>
     </div>
 
