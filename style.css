@@ -604,6 +604,11 @@ body {
     color: var(--color-royal-blue);
 }
 
+.red-heart-glow {
+    text-shadow: 0 0 10px rgba(229, 57, 53, 0.5);
+    color: #e53935;
+}
+
 /* Custom Dividers */
 .gold-accent-divider {
     width: 100px;
