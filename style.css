@@ -354,49 +354,12 @@ body {
     100% { box-shadow: 0 0 35px rgba(255, 226, 89, 0.8); }
 }
 
-/* Walking lord inside card */
+/* Lord Venkateswara Swamy Blessing Graphic (Static & Centered) */
 .sumuhurtam-divine-card .divine-blessing-graphic {
-    transform: translateY(-30px) scale(0.4);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 3.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 2.5s ease-out;
-}
-
-.sumuhurtam-divine-card .divine-blessing-graphic.walking {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    animation: innerLordSway 3.5s ease-in-out infinite;
-}
-
-@keyframes innerLordSway {
-    0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
-    25% { transform: translateY(-2px) scale(1) rotate(1deg); }
-    75% { transform: translateY(-2px) scale(1) rotate(-1deg); }
-}
-
-/* Card opened states */
-.sumuhurtam-divine-card.doors-open .divine-blessing-graphic {
-    transform: translateY(-25px) scale(0.7);
+    transform: translateY(-20px) scale(0.7);
     opacity: 0.85;
-    animation: none;
-}
-
-.sumuhurtam-divine-card.doors-open .venkateswara-svg circle[stroke-dasharray="3 6"] {
-    animation: rotateHalo 25s linear infinite;
-    transform-origin: 200px 150px;
-}
-
-.sumuhurtam-details-body.hidden-details {
-    opacity: 0;
-    transform: translateY(20px);
     pointer-events: none;
-    transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
-}
-
-.sumuhurtam-divine-card.doors-open .sumuhurtam-details-body.hidden-details {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+    margin-bottom: -20px;
 }
 
 /* ==========================================================================
@@ -1083,12 +1046,12 @@ body {
 }
 
 .event-mehendi .event-details-revealed {
-    background: linear-gradient(135deg, #D91A5F, #E65C00, #FFB300, #008E5F, #006B9E, #5B1EB2);
+    background: linear-gradient(135deg, #0A4D3B, #0F7B5F, #1E824C);
     color: var(--bg-ivory);
 }
 
 .event-sangeet .event-details-revealed {
-    background: linear-gradient(135deg, #7F00FF, #FF007F, #FF1493, #FF8E53);
+    background: linear-gradient(135deg, #002060, #0F357D, #1E468A);
     color: var(--bg-ivory);
 }
 
@@ -1629,6 +1592,15 @@ body {
     color: #5C5856;
     font-weight: 300;
     line-height: 1.6;
+}
+
+.step-vow-meaning-te {
+    font-family: 'NTR', 'Ramabhadra', 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: #8A7F75;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 0.4rem;
 }
 
 .saptapadi-final-text {
@@ -2295,28 +2267,11 @@ body {
     }
 }
 
-/* Mobile Responsive Overrides for Sumuhurtam Card Doors */
+/* Mobile Responsive Overrides for Sumuhurtam Card */
 @media (max-width: 480px) {
-    .inner-door-mandala {
-        width: 60px;
-        height: 60px;
-    }
-    .inner-door-left .inner-door-mandala {
-        transform: translateX(30px);
-    }
-    .inner-door-right .inner-door-mandala {
-        transform: translateX(-30px);
-    }
-    .reveal-sumuhurtam-btn {
-        font-size: 0.8rem;
-        padding: 0.9rem 1.6rem;
-        width: 80%;
-    }
     .sumuhurtam-divine-card .divine-blessing-graphic {
-        transform: translateY(-20px) scale(0.35);
-    }
-    .sumuhurtam-divine-card.doors-open .divine-blessing-graphic {
-        transform: translateY(-20px) scale(0.55);
+        transform: translateY(-15px) scale(0.55);
+        margin-bottom: -15px;
     }
 }
 

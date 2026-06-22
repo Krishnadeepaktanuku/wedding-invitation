@@ -467,33 +467,6 @@ document.addEventListener('DOMContentLoaded', () => {
         shareBtn.setAttribute('href', `https://api.whatsapp.com/send?text=${shareEncoded}`);
     }
 
-    // Inner Sumuhurtam Doors Reveal Sequence
-    const revealSumuhurtamBtn = document.getElementById('revealSumuhurtamBtn');
-    const innerWalkingLord = document.getElementById('innerWalkingLord');
-    const sumuhurtamDivineSection = document.getElementById('sumuhurtamDivineSection');
 
-    if (revealSumuhurtamBtn) {
-        revealSumuhurtamBtn.addEventListener('click', () => {
-            // Play initial chime
-            playTempleBellSound();
-            
-            // Hide reveal button
-            revealSumuhurtamBtn.style.opacity = '0';
-            revealSumuhurtamBtn.style.pointerEvents = 'none';
-            
-            // Start walking animation
-            if (innerWalkingLord) {
-                innerWalkingLord.classList.add('walking');
-            }
-            
-            // At 3.5 seconds: play chime again and slide doors open to reveal details
-            setTimeout(() => {
-                playTempleBellSound();
-                if (sumuhurtamDivineSection) {
-                    sumuhurtamDivineSection.classList.add('doors-open');
-                }
-            }, 3500);
-        });
-    }
 
 });
