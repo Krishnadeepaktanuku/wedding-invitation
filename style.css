@@ -1938,6 +1938,20 @@ body {
     text-transform: uppercase;
 }
 
+.footer-heart {
+    color: #e53935;
+    margin: 0 4px;
+    font-size: 0.8rem;
+    animation: heartBlink 1.2s infinite;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@keyframes heartBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.2); }
+}
+
 /* ==========================================================================
    12. Scroll Reveal Transitions
    ========================================================================== */
